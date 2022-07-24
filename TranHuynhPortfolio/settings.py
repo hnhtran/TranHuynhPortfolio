@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-*5=ufy2m=i(dalu4^=6=9)i7nesf!vt&64v30h05!6x6oxzwxb
 DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
-ALLOWED_HOSTS = ['tran-huynh-portfolio.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -62,7 +62,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TranHuynhPortfolio.urls'
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
