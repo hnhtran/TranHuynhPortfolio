@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from distutils.command.config import config
 from pathlib import Path
 import os
+import django_heroku
 from dotenv import load_dotenv
 # import dj_database_url
 dotenv_path = os.path.join(Path(__file__), '.env')
@@ -30,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*5=ufy2m=i(dalu4^=6=9)i7nesf!vt&64v30h05!6x6oxzwxb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 ALLOWED_HOSTS = ['*']
@@ -140,3 +141,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
