@@ -14,7 +14,7 @@ from distutils.command.config import config
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import dj_database_url
+# import dj_database_url
 dotenv_path = os.path.join(Path(__file__), '.env')
 load_dotenv(dotenv_path)
 
