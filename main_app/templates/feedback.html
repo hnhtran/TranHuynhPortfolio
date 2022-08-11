@@ -1,12 +1,19 @@
-<div class="col s6">
-    {% for feedback in feedbacks %}
-    <h1>{{feedback.feedback}}</h1>
-    {% endfor %}
-</div>
-<div class="col s6">
+<!-- <div class="col s6"> -->
     <form action="{% url 'add_feedback' %}" method="POST" class="feedbackForm">
         {% csrf_token %}
         {{ feedback_form.as_p }}
         <button type="submit" class="btn waves-effect waves-light">Submit</button>
     </form>
+<!-- </div> -->
+<!-- <div class="col s6"> -->
+<div>
+    {% for feedback in feedbacks %}
+    <div class="card">
+    <div class="card-content">
+        <p>{{ feedback.pk }} - {{ feedback.created_at }}</p>
+        <p>{{ feedback.get_feedback_display }}</p>
+        <p>{{ feedback.message }}</p>
+    </div>
+</div>
+    {% endfor %}
 </div>
