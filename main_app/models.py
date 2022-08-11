@@ -15,7 +15,7 @@ class Feedback(models.Model):
     email = models.EmailField(max_length=100)
     message = models.TextField()
     feedback = models.CharField(max_length=2, choices=FEEDBACK_TYPE_CHOICES, default='GO')
-    date = models.DateField(default=date.today)
+    created_at = models.DateTimeField("Created At", auto_now_add=True)
 
     def __str__(self):
-        return f'{self.get_feedback_display()} on {self.date}- {self.message}'
+        return f'{self.get_feedback_display()} on {self.created_at}- {self.message}'
