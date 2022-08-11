@@ -13,5 +13,19 @@
 <p>
     <a href="https://www.linkedin.com/in/tran-huynh-jade/">LinkedIn</a> is the page you can see more about my background and my work.
 </p>
+<div class="row">
+<div class="col s6">
+    <form method="POST" class="feedbackForm">
+        {% csrf_token %}
+        {{ feedback_form.as_p }}
+        <button type="submit" class="btn waves-effect waves-light">Submit</button>
+    </form>
+</div>
+</div>
+
+<script>
+    const selectEl = document.getElementById('id_feedback');
+    M.FormSelect.init(selectEl);
+</script>
 
 {% endblock %}
