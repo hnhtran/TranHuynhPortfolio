@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Feedback
@@ -18,3 +18,9 @@ def about(request):
 
 def projects(request):
     return render(request, 'projects.html')
+
+def add_feedback(request):
+    form = FeedbackForm(request.POST)
+    if form.is_valid():
+        form.save()
+    return redirect('about')
