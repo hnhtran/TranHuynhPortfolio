@@ -12,8 +12,10 @@ def home(request):
 
 def about(request):
     # return HttpResponse("This is the about page. I am a software engineer.")
+    feedbacks = Feedback.objects.all()
     return render(request, 'about.html', {
-        'feedback_form': feedback_form
+        'feedback_form': feedback_form,
+        'feedbacks': feedbacks
     })
 
 def projects(request):
