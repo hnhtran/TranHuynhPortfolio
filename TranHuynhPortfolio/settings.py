@@ -14,7 +14,6 @@ import dj_database_url
 from distutils.command.config import config
 from pathlib import Path
 import os
-import django_heroku
 from dotenv import load_dotenv
 # import dj_database_url
 dotenv_path = os.path.join(Path(__file__), '.env')
@@ -152,4 +151,3 @@ if not DEBUG:    # Tell Django to copy statics to the `static files` directory
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_heroku.settings(locals())
